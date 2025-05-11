@@ -24,15 +24,15 @@ jobs:
           git config --global core.autocrlf false
           git config --global core.symlinks true
         if: runner.os == 'Windows'
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@4
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: Create the npm cache directory
         run: mkdir npm-cache && npm config set cache ./npm-cache --global
       - name: Cache node modules
-        uses: actions/cache@4
+        uses: actions/cache@v4
         with:
           path: ./npm-cache
           key: v1-${{ runner.os }}-node-${{ matrix.node-version }}-npm-${{ hashFiles('**/package.json') }}
@@ -49,14 +49,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@4
-      - uses: actions/setup-node@4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Create the npm cache directory
         run: mkdir npm-cache && npm config set cache ./npm-cache --global
       - name: Cache node modules
-        uses: actions/cache@4
+        uses: actions/cache@v4
         with:
           path: ./npm-cache
           key: v1-npm-${{ hashFiles('**/package.json') }}
@@ -73,14 +73,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@4
-      - uses: actions/setup-node@4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Create the npm cache directory
         run: mkdir npm-cache && npm config set cache ./npm-cache --global
       - name: Cache node modules
-        uses: actions/cache@4
+        uses: actions/cache@v4
         with:
           path: ./npm-cache
           key: v1-npm-${{ hashFiles('**/package.json') }}
